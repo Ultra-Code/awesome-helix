@@ -1,0 +1,120 @@
+[[language]]
+name = "python"
+language-servers = ["pylsp", "ruff-lsp", "pylyzer"] # use pylsp-mypy for mypy
+formatter = { command = "ruff", args = ["format", "-n", "-"]}
+auto-format = true
+
+[language-server.ruff-lsp]
+command = "ruff-lsp"
+config = { settings = { organizeImports = true,  lint.run = "onSave" } }
+
+[language-server.pylyzer]
+command = "pylyzer"
+args = ["--server"] 
+
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+[language-server.efm]
+command = "efm-langserver"
+
+[[language]]
+name = "php"
+language-servers = [
+  { name = "phpactor", except-features = ["format"]},
+  { name = "phan", except-features = ["format"]},
+  { name = "psalm", except-features = ["format"]},  
+  { name = "efm", only-features = ["code-action", "diagnostics"]} # for phpstan
+]
+formatter = { command = "pretty-php", args = ["--psr12", "--preset", "laravel", "-"]}
+auto-format = true
+
+[language-server.phpactor]
+command = "phpactor"
+args = ["language-server"]
+
+[language-server.phan]
+command = "phan"
+args = ["--language-server-on-stdin", "--strict-type-checking", "--signature-compatibility", "--redundant-condition-detection", "--unused-variable-detection", "--dead-code-detection"]
+
+[language-server.psalm]
+command = "psalm"
+args = ["--language-server"]
+
+[[language]]
+name = "lua"
+shebangs = ["lua", "luajit"]
+language-servers = [
+  { name = "lua-language-server", except-features = ["format"]},  
+  { name = "efm", only-features = ["diagnostics", "code-action"]} # for selene
+]
+formatter = { command = "stylua", args = ["-"]}
+auto-format = true
+
+[language-server.lua-language-server.config.Lua]
+format.enable = false
+runtime.version = "LuaJIT"
+diagnostics.globals = ["vim"]
+workspace.library = ["/usr/share/nvim/runtime/lua", "/usr/share/nvim/runtime/lua/vim", "/usr/share/nvim/runtime/lua/vim/lsp"]
+
+[language-server.lua-language-server.config.Lua.hint]
+enable = true
+arrayIndex = "Enable"
+setType = true
+paramName = "All"
+paramType = true
+await = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+check.features = "all"
+
+[[language]]
+name = "docker-compose"
+language-id = "yaml"
+scope = "source.yaml.docker-compose"
+roots = ["docker-compose.yaml", "docker-compose.yml"]
+language-servers = [ "docker-compose-lsp" ]
+file-types = ["docker-compose.yaml", "docker-compose.yml"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+grammar = "yaml"
+
+[language-server.docker-compose-lsp]
+command = "docker-compose-langserver"
+args = ["--stdio"]
+
+[[language]]
+name = "dockerfile"
+language-servers = ["docker-langserver",
+  { name = "efm", only-features = ["code-action", "diagnostics"]} # for hadolint
+]
+
+[language.debugger]
+name = "lldb-vscode"
+transport = "stdio"
+command = "lldb-vscode"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "attach"
+request = "attach"
+completion = [ "pid" ]
+args = { console = "internalConsole", pid = "{0}" }
+
+[[language.debugger.templates]]
+name = "gdbserver attach"
+request = "attach"
+completion = [ { name = "lldb connect url", default = "connect://localhost:3333" }, { name = "file", completion = "filename" }, "pid" ]
+args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }

@@ -1,0 +1,70 @@
+version: 2
+log-file: /firefox/home/.cache/efm.log
+log-level: 9
+root-markers:
+  - .git/
+lint-debounce: 1s
+
+tools:
+  dockerfile-hadolint: &dockerfile-hadolint
+    prefix: hadolint
+    lint-command: hadolint --no-color -
+    lint-stdin: true
+    lint-formats:
+      - '-:%l %.%# %trror: %m'
+      - '-:%l %.%# %tarning: %m'
+      - '-:%l %.%# %tnfo: %m'
+
+  lua-selene: &lua-selene
+    prefix: selene
+    lint-command: selene --config ~/.config/selene/selene.toml --display-style Quiet -
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    lint-formats: 
+      - '%f:%l:%c: %trror%m'
+      - '%f:%l:%c: %tarning%m'
+      - '%f:%l:%c: %tote%m'
+
+  php-phpstan: &php-phpstan
+    prefix: phpstan
+    lint-command: phpstan analyze --error-format raw --no-progress
+
+  # php-cs-fixer: &php-cs-fixer
+  #   format-command: php-cs-fixer fix --no-ansi --using-cache=no --no-interaction --quiet '${INPUT}'
+  #   format-stdin: false
+  
+  # python-mypy: &python-mypy
+  #   prefix: mypy
+  #   lint-command: dmypy run --timeout 300 -- --strict --show-column-numbers
+  #   lint-stdin: false
+  #   lint-ignore-exit-code: true
+  #   lint-formats:
+  #     - '%f:%l:%c: %trror: %m'
+  #     - '%f:%l:%c: %tarning: %m'
+  #     - '%f:%l:%c: %tote: %m'
+
+  sh-shellcheck: &sh-shellcheck
+    prefix: shellcheck
+    lint-command: shellcheck -f gcc -x
+    lint-source: shellcheck
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
+
+languages:
+  dockerfile:
+    - <<: *dockerfile-hadolint
+
+  php:
+    - <<: *php-phpstan
+    # - <<: *php-cs-fixer
+
+  lua:
+    - <<: *lua-selene
+
+  # python:
+  #   - <<: *python-mypy
+
+  sh:
+    - <<: *sh-shellcheck

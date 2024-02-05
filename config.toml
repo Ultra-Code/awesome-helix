@@ -1,0 +1,68 @@
+theme = "dark_plus"
+
+[editor]
+scrolloff = 1
+mouse = false
+line-number = "relative"
+cursorline = true
+cursorcolumn = false
+auto-completion = true
+auto-format = true
+auto-save = true
+bufferline = "always"
+color-modes = true
+text-width = 80
+insert-final-newline = true
+auto-pairs = true
+
+[editor.statusline]
+left = ["mode", "version-control", "file-modification-indicator", "read-only-indicator"]
+center = ["file-name"]
+right = ["spinner", "diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.lsp]
+enable = true
+auto-signature-help = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace]
+space = "none"
+nbsp = "all"
+tab = "all"
+newline = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.gutters.line-numbers]
+min-width = 1
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 30
+wrap-at-text-width = true
+
+[editor.smart-tab]
+enable = true
+supersede-menu = true
