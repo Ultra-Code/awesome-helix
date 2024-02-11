@@ -1,6 +1,6 @@
 version: 2
-log-file: /firefox/home/.cache/efm.log
-log-level: 9
+log-file: /tmp/efm.log #because efm doesn't support ~ or env vars
+log-level: 0
 root-markers:
   - .git/
 lint-debounce: 1s
@@ -17,7 +17,7 @@ tools:
 
   lua-selene: &lua-selene
     prefix: selene
-    lint-command: selene --config ~/.config/selene/selene.toml --display-style Quiet -
+    lint-command: selene --config ~/.config/helix/selene/selene.toml --display-style Quiet -
     lint-ignore-exit-code: true
     lint-stdin: true
     lint-formats: 
@@ -45,12 +45,13 @@ tools:
 
   sh-shellcheck: &sh-shellcheck
     prefix: shellcheck
-    lint-command: shellcheck -f gcc -x
-    lint-source: shellcheck
+    lint-command: shellcheck --color=never --format=gcc -
+    lint-ignore-exit-code: true
+    lint-stdin: true
     lint-formats:
-      - '%f:%l:%c: %trror: %m'
-      - '%f:%l:%c: %tarning: %m'
-      - '%f:%l:%c: %tote: %m'
+      - '-:%l:%c: %trror: %m'
+      - '-:%l:%c: %tarning: %m'
+      - '-:%l:%c: %tote: %m'
 
 languages:
   dockerfile:

@@ -1,16 +1,12 @@
 [[language]]
 name = "python"
-language-servers = ["pylsp", "ruff-lsp", "pylyzer"] # use pylsp-mypy for mypy
+language-servers = ["pylsp", "ruff-lsp"] # use pylsp-mypy for mypy
 formatter = { command = "ruff", args = ["format", "-n", "-"]}
 auto-format = true
 
 [language-server.ruff-lsp]
 command = "ruff-lsp"
 config = { settings = { organizeImports = true,  lint.run = "onSave" } }
-
-[language-server.pylyzer]
-command = "pylyzer"
-args = ["--server"] 
 
 [[language]]
 name = "fish"
