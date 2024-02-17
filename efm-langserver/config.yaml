@@ -27,7 +27,11 @@ tools:
 
   php-phpstan: &php-phpstan
     prefix: phpstan
-    lint-command: phpstan analyze --error-format raw --no-progress
+    lint-command: phpstan analyze --no-progress --no-ansi --error-format=raw '${INPUT}'
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - '%.%#:%l:%m'
 
   # php-cs-fixer: &php-cs-fixer
   #   format-command: php-cs-fixer fix --no-ansi --using-cache=no --no-interaction --quiet '${INPUT}'
