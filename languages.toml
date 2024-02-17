@@ -33,7 +33,7 @@ args = ["language-server"]
 
 [language-server.phan]
 command = "phan"
-args = ["--language-server-on-stdin", "--strict-type-checking", "--signature-compatibility", "--redundant-condition-detection", "--unused-variable-detection", "--dead-code-detection"]
+args = ["--language-server-on-stdin", "--output-mode", "json", "--no-color", "--no-progress-bar" ]
 
 [language-server.psalm]
 command = "psalm"
