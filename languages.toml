@@ -27,6 +27,10 @@ language-servers = [
 formatter = { command = "pretty-php", args = ["--psr12", "--preset", "laravel", "-"]}
 auto-format = true
 
+[[language]]
+name = "git-config"
+file-types = [{ glob = "git/config" }]
+
 [language-server.phpactor]
 command = "phpactor"
 args = ["language-server"]
