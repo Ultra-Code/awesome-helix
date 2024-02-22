@@ -27,25 +27,20 @@ language-servers = [
 formatter = { command = "pretty-php", args = ["--psr12", "--preset", "laravel", "-"]}
 auto-format = true
 
-[[language]]
-name = "git-config"
-file-types = [{ glob = "git/config" }]
-
 [language-server.phpactor]
 command = "phpactor"
 args = ["language-server"]
 
 [language-server.phan]
-command = "phan"
+command = "./vendor/bin/phan"
 args = ["--language-server-on-stdin", "--output-mode", "json", "--no-color", "--no-progress-bar" ]
 
 [language-server.psalm]
-command = "psalm"
+command = "./vendor/bin/psalm"
 args = ["--language-server"]
 
 [[language]]
 name = "lua"
-shebangs = ["lua", "luajit"]
 language-servers = [
   { name = "lua-language-server", except-features = ["format"]},  
   { name = "efm", only-features = ["diagnostics", "code-action"]} # for selene
@@ -76,45 +71,15 @@ check.command = "clippy"
 check.features = "all"
 
 [[language]]
-name = "docker-compose"
-language-id = "yaml"
-scope = "source.yaml.docker-compose"
-roots = ["docker-compose.yaml", "docker-compose.yml"]
-language-servers = [ "docker-compose-lsp" ]
-file-types = ["docker-compose.yaml", "docker-compose.yml"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-grammar = "yaml"
-
-[language-server.docker-compose-lsp]
-command = "docker-compose-langserver"
-args = ["--stdio"]
-
-[[language]]
 name = "dockerfile"
 language-servers = ["docker-langserver",
   { name = "efm", only-features = ["code-action", "diagnostics"]} # for hadolint
 ]
 
-[language.debugger]
-name = "lldb-vscode"
-transport = "stdio"
-command = "lldb-vscode"
+[[language]]
+name = "yaml"
+file-types = ["yml", "yaml", { glob = "phpstan.neon" }]
 
-[[language.debugger.templates]]
-name = "binary"
-request = "launch"
-completion = [ { name = "binary", completion = "filename" } ]
-args = { console = "internalConsole", program = "{0}" }
-
-[[language.debugger.templates]]
-name = "attach"
-request = "attach"
-completion = [ "pid" ]
-args = { console = "internalConsole", pid = "{0}" }
-
-[[language.debugger.templates]]
-name = "gdbserver attach"
-request = "attach"
-completion = [ { name = "lldb connect url", default = "connect://localhost:3333" }, { name = "file", completion = "filename" }, "pid" ]
-args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
+[[language]]
+name = "git-config"
+file-types = [{ glob = "git/config" }, { glob = ".gitmodules" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }]

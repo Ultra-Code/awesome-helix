@@ -27,7 +27,7 @@ tools:
 
   php-phpstan: &php-phpstan
     prefix: phpstan
-    lint-command: phpstan analyze --no-progress --no-ansi --error-format=raw '${INPUT}'
+    lint-command: ./vendor/bin/phpstan analyze --no-progress --no-ansi --error-format=raw '${INPUT}'
     lint-stdin: false
     lint-ignore-exit-code: true
     lint-formats:
