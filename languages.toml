@@ -83,3 +83,15 @@ file-types = ["yml", "yaml", { glob = "phpstan.neon" }]
 [[language]]
 name = "git-config"
 file-types = [{ glob = "git/config" }, { glob = ".gitmodules" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }]
+
+[language-server.clangd]
+command = "clangd"
+args = ["--clang-tidy", "-j=5", "--malloc-trim"]
+
+[[language]]
+name = "c"
+language-servers = [
+  "clangd",
+  { name = "efm", only-features = ["diagnostics"]} # gcc lints
+]
+auto-format = true
