@@ -1,4 +1,7 @@
-theme = "dark_plus"
+# everforest_dark|gruvbox_dark_hard|gruvbox_dark_soft|zed_onedark
+# catppuccin_frappe|catppuccin_macchiato|catppuccin_mocha|pop-dark
+# ayu_dark|ayu_mirage|kanagawa|new_moon
+theme = "gruvbox"
 
 [editor]
 scrolloff = 1
@@ -34,15 +37,17 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-[editor.whitespace]
-space = "none"
-nbsp = "all"
+[editor.whitespace.render]
+space = "all"
 tab = "all"
-newline = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
 
 [editor.whitespace.characters]
 space = "·"
 nbsp = "⍽"
+nnbsp = "␣"
 tab = "→"
 newline = "⏎"
 tabpad = "·" # Tabs will look like "→···" (depending on tab width)
@@ -66,3 +71,47 @@ wrap-at-text-width = true
 [editor.smart-tab]
 enable = true
 supersede-menu = true
+
+[keys.normal]
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
+# ins = "insert_mode"
+# esc = ["collapse_selection", "keep_primary_selection"]
+# C-o = ":config-open" # Maps Ctrl-o to opening of the helix config file
+C-r = ":config-reload"
+# C-tab = ":buffer-previous"
+# C-S-tab = ":buffer-next"
+# A-w = ":buffer-close"
+
+# D = [ "extend_to_line_end", "change_selection"] # Wipe and edit the current line from cursor position
+# c = ["trim_selections", "change_selection"] # Make 'c' automatically strip the selection of extra whitespace
+# a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'
+
+# Mark line and move with them up/down
+# https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
+# C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+# C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+# Duplicate lines up/down
+# https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
+# Also in [keys.insert]
+# S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
+# S-A-k = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
+# S-space = ["half_page_up"]
+
+[keys.normal.space]
+# "." = "file_picker_in_current_buffer_directory"
+# https://github.com/helix-editor/helix/discussions/7908
+# x = ":toggle whitespace.render all none"
+
+[keys.insert]
+S-tab = "move_parent_node_start"
+# ins = "normal_mode"
+# Duplicate lines up/down
+# https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
+# S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
+# S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
+
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
