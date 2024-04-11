@@ -95,3 +95,8 @@ language-servers = [
   { name = "efm", only-features = ["diagnostics"]} # gcc lints
 ]
 auto-format = true
+
+[[language]]
+name = "bash"
+formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
+auto-format = true

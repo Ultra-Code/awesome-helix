@@ -47,15 +47,15 @@ tools:
   #     - '%f:%l:%c: %tarning: %m'
   #     - '%f:%l:%c: %tote: %m'
 
-  sh-shellcheck: &sh-shellcheck
-    prefix: shellcheck
-    lint-command: shellcheck --color=never --format=gcc -
-    lint-ignore-exit-code: true
-    lint-stdin: true
-    lint-formats:
-      - '-:%l:%c: %trror: %m'
-      - '-:%l:%c: %tarning: %m'
-      - '-:%l:%c: %tote: %m'
+  # sh-shellcheck: &sh-shellcheck
+  #   prefix: shellcheck
+  #   lint-command: shellcheck --color=never --format=gcc -
+  #   lint-ignore-exit-code: true
+  #   lint-stdin: true
+  #   lint-formats:
+  #     - '-:%l:%c: %trror: %m'
+  #     - '-:%l:%c: %tarning: %m'
+  #     - '-:%l:%c: %tote: %m'
 
   c-gcc: &c-gcc
     prefix: gcc
@@ -83,7 +83,7 @@ languages:
   #   - <<: *python-mypy
 
   sh:
-    - <<: *sh-shellcheck
+    # - <<: *sh-shellcheck
 
   c:
     - <<: *c-gcc
