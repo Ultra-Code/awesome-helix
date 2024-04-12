@@ -70,7 +70,7 @@ tools:
 
   c-cppcheck: &c-cppcheck
     prefix: cppcheck
-    lint-command: cppcheck --enable=all --disable=unusedFunction --inconclusive -j 5 --language=c --quiet '${INPUT}'
+    lint-command: cppcheck --enable=all --disable=unusedFunction --inconclusive -j 5 --language=c --library=std,posix --quiet --std=c23 '${INPUT}'
     lint-stdin: false
     lint-ignore-exit-code: true
     lint-formats:
