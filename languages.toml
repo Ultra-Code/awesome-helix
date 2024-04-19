@@ -94,6 +94,7 @@ language-servers = [
   "clangd",
   { name = "efm", only-features = ["diagnostics"]} # gcc lints and cppcheck
 ]
+file-types = ["c","h"]
 auto-format = true
 
 [[language]]
