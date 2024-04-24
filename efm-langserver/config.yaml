@@ -84,7 +84,7 @@ tools:
 
   c-clang-analyzer: &c-clang-analyzer
     prefix: clang-analyzer
-    lint-command: clang -x c -std=c2x --analyze -Xclang -analyzer-checker=alpha '${INPUT}'
+    lint-command: clang -x c -std=c2x --analyze -Xclang -analyzer-checker=alpha -o /dev/null '${INPUT}'
     lint-stdin: false
     lint-ignore-exit-code: true
     lint-formats:
