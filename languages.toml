@@ -101,3 +101,8 @@ auto-format = true
 name = "bash"
 formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
 auto-format = true
+
+[[language]]
+name = "pkgbuild"
+formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
+auto-format = true
