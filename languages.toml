@@ -110,14 +110,12 @@ auto-format = true
 [[language]]
 name = "mojo"
 scope = "source.mojo"
-file-types = ["mojo", "🔥", { glob = ".pythonrc" } ]
+file-types = ["mojo", "🔥", { glob = "__init__.mojo" } ]
 shebangs = ["mojo"]
 injection-regex = "mojo"
-# roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+roots = []
 comment-token = "#"
 language-servers = [ "mojo-lsp-server" ]
-formatter = { command = "ruff", args = ["format", "-n", "-"]}
-auto-format = true
 indent = { tab-width = 4, unit = "    " }
 grammar = "python"
 
