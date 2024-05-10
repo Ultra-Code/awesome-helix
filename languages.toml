@@ -106,3 +106,31 @@ auto-format = true
 name = "pkgbuild"
 formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
 auto-format = true
+
+[[language]]
+name = "mojo"
+scope = "source.mojo"
+file-types = ["mojo", "🔥", { glob = ".pythonrc" } ]
+shebangs = ["mojo"]
+injection-regex = "mojo"
+# roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+language-servers = [ "mojo-lsp-server" ]
+formatter = { command = "ruff", args = ["format", "-n", "-"]}
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+grammar = "python"
+
+[language-server.mojo-lsp-server]
+command = "mojo-lsp-server"
+
+[language.debugger]
+name = "mojo-lldb-dap"
+transport = "stdio"
+command = "mojo-lldb-dap"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [ ] }
