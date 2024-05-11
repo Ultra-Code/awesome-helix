@@ -114,6 +114,8 @@ file-types = ["mojo", "🔥", { glob = "__init__.mojo" } ]
 shebangs = ["mojo"]
 injection-regex = "mojo"
 roots = []
+formatter = { command = "mojo", args = ["format", "-"]}
+auto-format = true
 comment-token = "#"
 language-servers = [ "mojo-lsp-server" ]
 indent = { tab-width = 4, unit = "    " }
