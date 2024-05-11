@@ -106,3 +106,9 @@ auto-format = true
 name = "pkgbuild"
 formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
 auto-format = true
+language-servers = [
+  "pkgbuild-language-server",
+  { except-features = [
+    # "diagnostics",
+  ], name = "bash-language-server" },
+]
