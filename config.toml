@@ -75,10 +75,13 @@ supersede-menu = true
 [keys.normal]
 tab = "move_parent_node_end"
 S-tab = "move_parent_node_start"
+C-q = ":quit-all"
+C-s = ":write"
+C-r = ":config-reload"
+A-s = "save_selection"
 # ins = "insert_mode"
 # esc = ["collapse_selection", "keep_primary_selection"]
 # C-o = ":config-open" # Maps Ctrl-o to opening of the helix config file
-C-r = ":config-reload"
 # C-tab = ":buffer-previous"
 # C-S-tab = ":buffer-next"
 # A-w = ":buffer-close"
