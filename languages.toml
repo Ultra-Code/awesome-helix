@@ -124,6 +124,7 @@ grammar = "python"
 [language-server.mojo-lsp-server]
 command = "mojo-lsp-server"
 
+# improve debug configuration with https://docs.modular.com/mojo/tools/debugging#mojo-launch-configurations
 [language.debugger]
 name = "mojo-lldb-dap"
 transport = "stdio"
