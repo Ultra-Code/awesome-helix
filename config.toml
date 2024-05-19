@@ -109,6 +109,8 @@ A-s = "save_selection"
 
 [keys.insert]
 S-tab = "move_parent_node_start"
+C-s = ["normal_mode", ":write", "insert_mode"]
+A-s = "commit_undo_checkpoint"
 # ins = "normal_mode"
 # Duplicate lines up/down
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
