@@ -1,7 +1,7 @@
 # everforest_dark|gruvbox_dark_hard|gruvbox_dark_soft|zed_onedark
 # catppuccin_frappe|catppuccin_macchiato|catppuccin_mocha|pop-dark
 # ayu_dark|ayu_mirage|kanagawa|new_moon
-theme = "gruvbox"
+theme = "everforest_dark" # gruvbox
 
 [editor]
 scrolloff = 1

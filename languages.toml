@@ -112,3 +112,32 @@ language-servers = [
     # "diagnostics",
   ], name = "bash-language-server" },
 ]
+
+[[language]]
+name = "mojo"
+scope = "source.mojo"
+file-types = ["mojo", "🔥", { glob = "__init__.mojo" } ]
+shebangs = ["mojo"]
+injection-regex = "mojo"
+roots = []
+formatter = { command = "mojo", args = ["format", "-"]}
+auto-format = true
+comment-token = "#"
+language-servers = [ "mojo-lsp-server" ]
+indent = { tab-width = 4, unit = "    " }
+grammar = "python"
+
+[language-server.mojo-lsp-server]
+command = "mojo-lsp-server"
+
+# improve debug configuration with https://docs.modular.com/mojo/tools/debugging#mojo-launch-configurations
+[language.debugger]
+name = "mojo-lldb-dap"
+transport = "stdio"
+command = "mojo-lldb-dap"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [ ] }
