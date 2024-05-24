@@ -131,6 +131,7 @@ grammar = "python"
 command = "mojo-lsp-server"
 
 # improve debug configuration with https://docs.modular.com/mojo/tools/debugging#mojo-launch-configurations
+# also have a look at js completion template
 [language.debugger]
 name = "mojo-lldb-dap"
 transport = "stdio"
@@ -141,3 +142,31 @@ name = "binary"
 request = "launch"
 completion = [ { name = "binary", completion = "filename" } ]
 args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [ ] }
+
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy"]
+
+[[language]]
+name = "javascript"
+language-servers = ["biome", { name = "typescript-language-server", except-features = [ "format" ] }]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.js"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = ["biome", { name = "typescript-language-server", except-features = [ "format" ] }]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.ts"] }
+auto-format = true
+
+[[language]]
+name = "json"
+language-servers = ["biome", { name = "vscode-json-language-server", except-features = [ "format" ] }]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.json"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+language-servers = [ "biome", { name = "vscode-json-language-server", except-features = [ "format" ] }]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.jsonc"] }
+auto-format = true
