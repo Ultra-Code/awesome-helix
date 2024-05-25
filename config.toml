@@ -19,9 +19,23 @@ insert-final-newline = true
 auto-pairs = true
 
 [editor.statusline]
-left = ["mode", "version-control", "file-modification-indicator", "read-only-indicator"]
+left = [
+  "mode",
+  "version-control",
+  "file-modification-indicator",
+  "read-only-indicator",
+]
 center = ["file-name"]
-right = ["spinner", "diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = [
+  "spinner",
+  "diagnostics",
+  "register",
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
 separator = "│"
 
 [editor.lsp]
@@ -50,7 +64,7 @@ nbsp = "⍽"
 nnbsp = "␣"
 tab = "→"
 newline = "⏎"
-tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+tabpad = "·"  # Tabs will look like "→···" (depending on tab width)
 
 [editor.indent-guides]
 render = true
