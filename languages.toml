@@ -54,14 +54,6 @@ runtime.version = "LuaJIT"
 diagnostics.globals = ["vim"]
 workspace.library = ["/usr/share/nvim/runtime/lua", "/usr/share/nvim/runtime/lua/vim", "/usr/share/nvim/runtime/lua/vim/lsp"]
 
-[language-server.lua-language-server.config.Lua.hint]
-enable = true
-arrayIndex = "Enable"
-setType = true
-paramName = "All"
-paramType = true
-await = true
-
 [[language]]
 name = "rust"
 auto-format = true
