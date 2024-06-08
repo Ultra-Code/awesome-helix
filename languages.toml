@@ -1,12 +1,19 @@
 [[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[[language]]
 name = "python"
-language-servers = ["pylsp", "ruff-lsp"] # use pylsp-mypy for mypy
-formatter = { command = "ruff", args = ["format", "-n", "-"]}
+# use pylsp-mypy for mypy
+# TODO: replace ruff-lsp with pylsp-ruff
+language-servers = ["pylsp", "ruff-lsp"]
+formatter = { command = "ruff", args = ["format", "-n", "-"] }
 auto-format = true
 
 [language-server.ruff-lsp]
 command = "ruff-lsp"
-config = { settings = { organizeImports = true,  lint.run = "onSave" } }
+config = { settings = { organizeImports = true, lint.run = "onSave" } }
 
 [[language]]
 name = "fish"
@@ -19,12 +26,26 @@ command = "efm-langserver"
 [[language]]
 name = "php"
 language-servers = [
-  { name = "phpactor", except-features = ["format"]},
-  { name = "phan", except-features = ["format"]},
-  { name = "psalm", except-features = ["format"]},  
-  { name = "efm", only-features = ["code-action", "diagnostics"]} # for phpstan
+  { name = "phpactor", except-features = [
+    "format",
+  ] },
+  { name = "phan", except-features = [
+    "format",
+  ] },
+  { name = "psalm", except-features = [
+    "format",
+  ] },
+  { name = "efm", only-features = [
+    "code-action",
+    "diagnostics",
+  ] }, # for phpstan
 ]
-formatter = { command = "pretty-php", args = ["--psr12", "--preset", "laravel", "-"]}
+formatter = { command = "pretty-php", args = [
+  "--psr12",
+  "--preset",
+  "laravel",
+  "-",
+] }
 auto-format = true
 
 [language-server.phpactor]
@@ -33,7 +54,13 @@ args = ["language-server"]
 
 [language-server.phan]
 command = "./vendor/bin/phan"
-args = ["--language-server-on-stdin", "--output-mode", "json", "--no-color", "--no-progress-bar" ]
+args = [
+  "--language-server-on-stdin",
+  "--output-mode",
+  "json",
+  "--no-color",
+  "--no-progress-bar",
+]
 
 [language-server.psalm]
 command = "./vendor/bin/psalm"
@@ -42,17 +69,21 @@ args = ["--language-server"]
 [[language]]
 name = "lua"
 language-servers = [
-  { name = "lua-language-server", except-features = ["format"]},  
-  { name = "efm", only-features = ["diagnostics", "code-action"]} # for selene
+  { name = "lua-language-server", except-features = ["format"] },
+  { name = "efm", only-features = ["diagnostics", "code-action"] }, # for selene
 ]
-formatter = { command = "stylua", args = ["-"]}
+formatter = { command = "stylua", args = ["-"] }
 auto-format = true
 
 [language-server.lua-language-server.config.Lua]
 format.enable = false
 runtime.version = "LuaJIT"
 diagnostics.globals = ["vim"]
-workspace.library = ["/usr/share/nvim/runtime/lua", "/usr/share/nvim/runtime/lua/vim", "/usr/share/nvim/runtime/lua/vim/lsp"]
+workspace.library = [
+  "/usr/share/nvim/runtime/lua",
+  "/usr/share/nvim/runtime/lua/vim",
+  "/usr/share/nvim/runtime/lua/vim/lsp",
+]
 
 [[language]]
 name = "rust"
@@ -88,8 +119,12 @@ typing.autoClosingAngleBrackets.enable = true
 
 [[language]]
 name = "dockerfile"
-language-servers = ["docker-langserver",
-  { name = "efm", only-features = ["code-action", "diagnostics"]} # for hadolint
+language-servers = [
+  "docker-langserver",
+  { name = "efm", only-features = [
+    "code-action",
+    "diagnostics",
+  ] }, # for hadolint
 ]
 
 [[language]]
@@ -98,7 +133,13 @@ file-types = ["yml", "yaml", { glob = "phpstan.neon" }]
 
 [[language]]
 name = "git-config"
-file-types = [{ glob = "git/config" }, { glob = ".gitmodules" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }]
+file-types = [
+  { glob = "git/config" },
+  { glob = ".gitmodules" },
+  { glob = ".gitconfig" },
+  { glob = ".git/config" },
+  { glob = ".config/git/config" },
+]
 
 [language-server.clangd]
 command = "clangd"
@@ -108,19 +149,19 @@ args = ["--clang-tidy", "-j=5", "--malloc-trim"]
 name = "c"
 language-servers = [
   "clangd",
-  { name = "efm", only-features = ["diagnostics"]} # gcc lints and cppcheck
+  { name = "efm", only-features = ["diagnostics"] }, # gcc lints and cppcheck
 ]
-file-types = ["c","h"]
+file-types = ["c", "h"]
 auto-format = true
 
 [[language]]
 name = "bash"
-formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
+formatter = { command = "shfmt", args = ["--indent", "2", "-"] }
 auto-format = true
 
 [[language]]
 name = "pkgbuild"
-formatter = { command = "shfmt", args = ["--indent", "2", "-"]}
+formatter = { command = "shfmt", args = ["--indent", "2", "-"] }
 auto-format = true
 language-servers = [
   "pkgbuild-language-server",
@@ -132,14 +173,14 @@ language-servers = [
 [[language]]
 name = "mojo"
 scope = "source.mojo"
-file-types = ["mojo", "🔥", { glob = "__init__.mojo" } ]
+file-types = ["mojo", "🔥", { glob = "__init__.mojo" }]
 shebangs = ["mojo"]
 injection-regex = "mojo"
 roots = []
-formatter = { command = "mojo", args = ["format", "-"]}
+formatter = { command = "mojo", args = ["format", "-"] }
 auto-format = true
 comment-token = "#"
-language-servers = [ "mojo-lsp-server" ]
+language-servers = ["mojo-lsp-server"]
 indent = { tab-width = 4, unit = "    " }
 grammar = "python"
 
@@ -156,8 +197,9 @@ command = "mojo-lldb-dap"
 [[language.debugger.templates]]
 name = "binary"
 request = "launch"
-completion = [ { name = "binary", completion = "filename" } ]
-args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [ ] }
+completion = [{ name = "binary", completion = "filename" }]
+args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [
+] }
 
 [language-server.biome]
 command = "biome"
@@ -165,24 +207,60 @@ args = ["lsp-proxy"]
 
 [[language]]
 name = "javascript"
-language-servers = ["biome", { name = "typescript-language-server", except-features = [ "format" ] }]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.js"] }
+language-servers = [
+  "biome",
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.js",
+] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = ["biome", { name = "typescript-language-server", except-features = [ "format" ] }]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.ts"] }
+language-servers = [
+  "biome",
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.ts",
+] }
 auto-format = true
 
 [[language]]
 name = "json"
-language-servers = ["biome", { name = "vscode-json-language-server", except-features = [ "format" ] }]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.json"] }
+language-servers = [
+  "biome",
+  { name = "vscode-json-language-server", except-features = [
+    "format",
+  ] },
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.json",
+] }
 auto-format = true
 
 [[language]]
 name = "jsonc"
-language-servers = [ "biome", { name = "vscode-json-language-server", except-features = [ "format" ] }]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "input.jsonc"] }
+language-servers = [
+  "biome",
+  { name = "vscode-json-language-server", except-features = [
+    "format",
+  ] },
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.jsonc",
+] }
 auto-format = true
