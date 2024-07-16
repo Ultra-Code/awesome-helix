@@ -16,6 +16,7 @@ color-modes = true
 text-width = 80
 insert-final-newline = true
 auto-pairs = true
+end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = [
@@ -96,6 +97,12 @@ wrap-at-text-width = true
 [editor.smart-tab]
 enable = true
 supersede-menu = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "info"
+max-wrap = 40
+max-diagnostics = 20
 
 [keys.normal]
 tab = "move_parent_node_end"
