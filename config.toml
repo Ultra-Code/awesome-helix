@@ -4,14 +4,13 @@
 theme = "everforest_dark" # gruvbox
 
 [editor]
-scrolloff = 1
+scrolloff = 9
 mouse = false
 line-number = "relative"
 cursorline = true
 cursorcolumn = false
 auto-completion = true
 auto-format = true
-auto-save = false
 bufferline = "always"
 color-modes = true
 text-width = 80
@@ -29,9 +28,10 @@ center = ["file-name"]
 right = [
   "spinner",
   "diagnostics",
+  "workspace-diagnostics",
+  "position",
   "register",
   "selections",
-  "position",
   "file-encoding",
   "file-line-ending",
   "file-type",
@@ -42,6 +42,7 @@ separator = "│"
 enable = true
 auto-signature-help = true
 display-inlay-hints = true
+snippets = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -50,6 +51,15 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.auto-save]
+focus-lost = false
+after-delay.enable = true
+after-delay.timeout = 60000 # 1 min after last edit
+
+[editor.search]
+smart-case = true
+wrap-around = true
 
 [editor.whitespace.render]
 space = "all"
@@ -68,11 +78,11 @@ tabpad = "·"  # Tabs will look like "→···" (depending on tab width)
 
 [editor.indent-guides]
 render = true
-character = "┊"
+character = "▏" # "┊", "┆"
 skip-levels = 1
 
 [editor.gutters]
-layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+layout = ["diff", "line-numbers", "diagnostics"]
 
 [editor.gutters.line-numbers]
 min-width = 1
@@ -80,6 +90,7 @@ min-width = 1
 [editor.soft-wrap]
 enable = true
 max-wrap = 30
+max-indent-retain = 0
 wrap-at-text-width = true
 
 [editor.smart-tab]
