@@ -1,5 +1,8 @@
 # awesome-helix
 
+_Note: For inline diagnostics use the latest [master helix](https://github.com/helix-editor/helix) with my [inline-diagnostics](https://github.com/Ultra-Code/awesome-helix/tree/inline-diagnostics) branch_
+
+
 ## 🔥 Screenshots
 
 ### ⚡ Zig
