@@ -218,6 +218,8 @@ formatter = { command = "biome", args = [
   "format",
   "--stdin-file-path",
   "input.js",
+  "--indent-style",
+  "space",
 ] }
 auto-format = true
 
@@ -233,6 +235,8 @@ formatter = { command = "biome", args = [
   "format",
   "--stdin-file-path",
   "input.ts",
+  "--indent-style",
+  "space",
 ] }
 auto-format = true
 
@@ -248,6 +252,8 @@ formatter = { command = "biome", args = [
   "format",
   "--stdin-file-path",
   "input.json",
+  "--indent-style",
+  "space",
 ] }
 auto-format = true
 
@@ -263,5 +269,7 @@ formatter = { command = "biome", args = [
   "format",
   "--stdin-file-path",
   "input.jsonc",
+  "--indent-style",
+  "space",
 ] }
 auto-format = true
