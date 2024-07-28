@@ -1,7 +1,7 @@
 # everforest_dark|gruvbox_dark_hard|gruvbox_dark_soft|zed_onedark
 # catppuccin_frappe|catppuccin_macchiato|catppuccin_mocha|pop-dark
 # ayu_dark|ayu_mirage|kanagawa|new_moon
-theme = "everforest_dark" # gruvbox
+theme = "gruvbox" # everforest_dark
 
 [editor]
 scrolloff = 9
@@ -62,7 +62,7 @@ smart-case = true
 wrap-around = true
 
 [editor.whitespace.render]
-space = "all"
+space = "none"
 tab = "all"
 nbsp = "all"
 nnbsp = "all"
