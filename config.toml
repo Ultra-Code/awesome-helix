@@ -11,6 +11,7 @@ cursorline = true
 cursorcolumn = false
 auto-completion = true
 auto-format = true
+preview-completion-insert = true
 bufferline = "always"
 color-modes = true
 text-width = 80

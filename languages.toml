@@ -6,13 +6,13 @@ auto-format = true
 [[language]]
 name = "python"
 # use pylsp-mypy for mypy
-# TODO: replace ruff-lsp with pylsp-ruff
-language-servers = ["pylsp", "ruff-lsp"]
+language-servers = ["pylsp", "ruff"]
 formatter = { command = "ruff", args = ["format", "-n", "-"] }
 auto-format = true
 
-[language-server.ruff-lsp]
-command = "ruff-lsp"
+[language-server.ruff]
+command = "ruff"
+args = ["server", "--preview"]
 config = { settings = { organizeImports = true, lint.run = "onSave" } }
 
 [[language]]
