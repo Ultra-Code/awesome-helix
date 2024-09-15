@@ -17,7 +17,7 @@ color-modes = true
 text-width = 80
 insert-final-newline = true
 auto-pairs = true
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "disable"
 
 [editor.statusline]
 left = [
@@ -100,8 +100,8 @@ enable = true
 supersede-menu = true
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
-other-lines = "info"
+cursor-line = "info"
+other-lines = "hint"
 max-wrap = 40
 max-diagnostics = 20
 
