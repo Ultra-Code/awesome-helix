@@ -106,50 +106,32 @@ max-wrap = 40
 max-diagnostics = 20
 
 [keys.normal]
-tab = "move_parent_node_end"
-S-tab = "move_parent_node_start"
 C-q = ":quit-all"
 C-s = ":write"
 C-r = ":config-reload"
 A-s = "save_selection"
-# ins = "insert_mode"
-# esc = ["collapse_selection", "keep_primary_selection"]
-# C-o = ":config-open" # Maps Ctrl-o to opening of the helix config file
-# C-tab = ":buffer-previous"
-# C-S-tab = ":buffer-next"
-# A-w = ":buffer-close"
-
-# D = [ "extend_to_line_end", "change_selection"] # Wipe and edit the current line from cursor position
-# c = ["trim_selections", "change_selection"] # Make 'c' automatically strip the selection of extra whitespace
-# a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'
-
+A-w = ":buffer-close"
+# Wipe and edit the current line from cursor position
+D = [ "extend_to_line_bounds", "change_selection"]
+esc = ["collapse_selection", "keep_primary_selection"]
 # Mark line and move with them up/down
 # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
-# C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-# C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 # Duplicate lines up/down
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
-# Also in [keys.insert]
-# S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
-# S-A-k = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
-# S-space = ["half_page_up"]
+S-A-j = ["extend_to_line_bounds", "yank", "open_below", "normal_mode", "replace_with_yanked", "collapse_selection"]
+S-A-k = ["extend_to_line_bounds", "yank", "open_above", "normal_mode", "replace_with_yanked", "collapse_selection"]
+S-space = ["half_page_up"]
+# a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'  
 
 [keys.normal.space]
 # "." = "file_picker_in_current_buffer_directory"
-# https://github.com/helix-editor/helix/discussions/7908
-# x = ":toggle whitespace.render all none"
 
 [keys.insert]
-S-tab = "move_parent_node_start"
 C-s = ["normal_mode", ":write", "insert_mode"]
 A-s = "commit_undo_checkpoint"
-# ins = "normal_mode"
 # Duplicate lines up/down
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
-# S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
-# S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
-
-[keys.select]
-tab = "extend_parent_node_end"
-S-tab = "extend_parent_node_start"
+S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
+S-A-k = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
