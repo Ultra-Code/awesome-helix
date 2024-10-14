@@ -96,6 +96,16 @@ warn_style = true
 highlight_global_var_declarations = true
 
 [[language]]
+name = "gas"
+file-types = ["s", "S"]
+language-servers = ["asm-lsp"]
+
+[language-server.asm-lsp]
+command = "asm-lsp"
+args = []
+config = { filetypes = ["s", "S"]}
+
+[[language]]
 name = "rust"
 auto-format = true
 
