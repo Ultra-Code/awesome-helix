@@ -111,9 +111,8 @@ C-s = ":write"
 C-r = ":config-reload"
 A-s = "save_selection"
 A-w = ":buffer-close"
-# Wipe and edit the current line from cursor position
-D = [ "extend_to_line_bounds", "change_selection"]
-esc = ["collapse_selection", "keep_primary_selection"]
+# delete to end of line
+D = [ "select_mode", "goto_line_end", "change_selection"]
 # Mark line and move with them up/down
 # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
@@ -124,6 +123,7 @@ S-A-j = ["extend_to_line_bounds", "yank", "open_below", "normal_mode", "replace_
 S-A-k = ["extend_to_line_bounds", "yank", "open_above", "normal_mode", "replace_with_yanked", "collapse_selection"]
 S-space = ["half_page_up"]
 # a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'  
+# esc = ["collapse_selection", "keep_primary_selection"]
 
 [keys.normal.space]
 # "." = "file_picker_in_current_buffer_directory"
