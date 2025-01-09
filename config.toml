@@ -17,7 +17,7 @@ color-modes = true
 text-width = 80
 insert-final-newline = true
 auto-pairs = true
-end-of-line-diagnostics = "disable"
+end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = [
@@ -112,15 +112,34 @@ C-r = ":config-reload"
 A-s = "save_selection"
 A-w = ":buffer-close"
 # delete to end of line
-D = [ "select_mode", "goto_line_end", "change_selection"]
+D = ["select_mode", "goto_line_end", "change_selection"]
 # Mark line and move with them up/down
 # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
 # Duplicate lines up/down
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
-S-A-j = ["extend_to_line_bounds", "yank", "open_below", "normal_mode", "replace_with_yanked", "collapse_selection"]
-S-A-k = ["extend_to_line_bounds", "yank", "open_above", "normal_mode", "replace_with_yanked", "collapse_selection"]
+S-A-j = [
+  "extend_to_line_bounds",
+  "yank",
+  "open_below",
+  "normal_mode",
+  "replace_with_yanked",
+  "collapse_selection",
+]
+S-A-k = [
+  "extend_to_line_bounds",
+  "yank",
+  "open_above",
+  "normal_mode",
+  "replace_with_yanked",
+  "collapse_selection",
+]
 S-space = ["half_page_up"]
 # a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'  
 # esc = ["collapse_selection", "keep_primary_selection"]
@@ -133,5 +152,19 @@ C-s = ["normal_mode", ":write", "insert_mode"]
 A-s = "commit_undo_checkpoint"
 # Duplicate lines up/down
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
-S-A-j = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
-S-A-k = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
+S-A-j = [
+  "normal_mode",
+  "extend_to_line_bounds",
+  "yank",
+  "open_below",
+  "replace_with_yanked",
+  "collapse_selection",
+]
+S-A-k = [
+  "normal_mode",
+  "extend_to_line_bounds",
+  "yank",
+  "open_above",
+  "replace_with_yanked",
+  "collapse_selection",
+]
