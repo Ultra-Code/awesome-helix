@@ -1,6 +1,6 @@
 # awesome-helix
 
-_Note: For inline diagnostics use the latest [master helix](https://github.com/helix-editor/helix) with my [inline-diagnostics](https://github.com/Ultra-Code/awesome-helix/tree/inline-diagnostics) branch_
+_[Helix](https://github.com/helix-editor/helix) configured for zig, rust, c, c++, python, lua, shell, php and web development_
 
 
 ## 🔥 Screenshots
