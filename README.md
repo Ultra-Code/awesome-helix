@@ -1,6 +1,6 @@
 # awesome-helix
 
-_[Helix](https://github.com/helix-editor/helix) configured for zig, rust, c, c++, python, lua, shell, php and web development_
+_[Helix](https://github.com/helix-editor/helix) configured for zig, rust, c, c++, python, web development, shell, and lua_
 
 
 ## 🔥 Screenshots

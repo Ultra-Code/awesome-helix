@@ -224,17 +224,54 @@ completion = [{ name = "binary", completion = "filename" }]
 args = { console = "internalConsole", program = "{0}", runInTerminal = false, initCommands = [
 ] }
 
+[language-server.vscode-css-language-server.config]
+# https://code.visualstudio.com/docs/languages/css#_customizing-css-scss-and-less-settings
+css.lint.unknownAtRules = "ignore"
+
+[language-server.tailwindcss-lsp]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.tailwindcss-lsp.config]
+includeLanguages = { tailwindcss = "css" }
+
+[[language]]
+name = "html"
+language-servers = [
+  "vscode-html-language-server",
+  "superhtml",
+  "tailwindcss-lsp",
+]
+
 [language-server.biome]
 command = "biome"
 args = ["lsp-proxy"]
 
 [[language]]
+name = "css"
+language-servers = [
+  { name = "vscode-css-language-server", except-features = [
+    "format",
+  ] },
+  "tailwindcss-lsp",
+  "biome",
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.css",
+  "--indent-style",
+  "space",
+] }
+auto-format = true
+
+[[language]]
 name = "javascript"
 language-servers = [
-  "biome",
   { name = "typescript-language-server", except-features = [
     "format",
   ] },
+  "biome",
 ]
 formatter = { command = "biome", args = [
   "format",
@@ -248,10 +285,10 @@ auto-format = true
 [[language]]
 name = "typescript"
 language-servers = [
-  "biome",
   { name = "typescript-language-server", except-features = [
     "format",
   ] },
+  "biome",
 ]
 formatter = { command = "biome", args = [
   "format",
@@ -263,12 +300,48 @@ formatter = { command = "biome", args = [
 auto-format = true
 
 [[language]]
+name = "tsx"
+language-servers = [
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+  "tailwindcss-lsp",
+  "biome",
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.tsx",
+  "--indent-style",
+  "space",
+] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+  "tailwindcss-lsp",
+  "biome",
+]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "input.jsx",
+  "--indent-style",
+  "space",
+] }
+auto-format = true
+
+[[language]]
 name = "json"
 language-servers = [
-  "biome",
   { name = "vscode-json-language-server", except-features = [
     "format",
   ] },
+  "biome",
 ]
 formatter = { command = "biome", args = [
   "format",
@@ -282,10 +355,10 @@ auto-format = true
 [[language]]
 name = "jsonc"
 language-servers = [
-  "biome",
   { name = "vscode-json-language-server", except-features = [
     "format",
   ] },
+  "biome",
 ]
 formatter = { command = "biome", args = [
   "format",
