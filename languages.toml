@@ -256,13 +256,6 @@ language-servers = [
   "tailwindcss-lsp",
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.css",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -273,13 +266,6 @@ language-servers = [
   ] },
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.js",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -290,13 +276,6 @@ language-servers = [
   ] },
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.ts",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -308,13 +287,6 @@ language-servers = [
   "tailwindcss-lsp",
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.tsx",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -326,13 +298,6 @@ language-servers = [
   "tailwindcss-lsp",
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.jsx",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -343,13 +308,6 @@ language-servers = [
   ] },
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.json",
-  "--indent-style",
-  "space",
-] }
 auto-format = true
 
 [[language]]
@@ -360,11 +318,4 @@ language-servers = [
   ] },
   "biome",
 ]
-formatter = { command = "biome", args = [
-  "format",
-  "--stdin-file-path",
-  "input.jsonc",
-  "--indent-style",
-  "space",
-] }
 auto-format = true

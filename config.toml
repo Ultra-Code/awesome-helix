@@ -67,7 +67,7 @@ wrap-around = true
 
 [editor.whitespace.render]
 space = "none"
-tab = "all"
+tab = "none"
 nbsp = "all"
 nnbsp = "all"
 newline = "none"
