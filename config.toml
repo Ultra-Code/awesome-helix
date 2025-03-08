@@ -59,7 +59,7 @@ select = "underline"
 hidden = false
 
 [editor.auto-save]
-focus-lost = true
+focus-lost = false
 after-delay.enable = true
 after-delay.timeout = 60000 # 1 min after last edit
 
