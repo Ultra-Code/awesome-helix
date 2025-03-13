@@ -18,6 +18,8 @@ color-modes = true
 text-width = 80
 insert-final-newline = true
 auto-pairs = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
 
 [editor.statusline]
@@ -143,7 +145,8 @@ S-A-k = [
   "collapse_selection",
 ]
 S-space = ["half_page_up"]
-# a = ["append_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'a'  
+# Remove the selection when entering insert mode with 'a'
+# a = ["append_mode", "collapse_selection"
 # esc = ["collapse_selection", "keep_primary_selection"]
 # Enhance Smart Tab
 tab = "move_parent_node_end"
