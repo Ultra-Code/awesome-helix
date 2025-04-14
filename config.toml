@@ -21,6 +21,7 @@ auto-pairs = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
+editor-config = true
 
 [editor.statusline]
 left = [
