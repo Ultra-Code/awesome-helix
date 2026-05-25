@@ -5,8 +5,7 @@ auto-format = true
 
 [[language]]
 name = "python"
-# use pylsp-mypy for mypy
-language-servers = ["pylsp", "ruff"]
+language-servers = ["ty", "ruff"]
 formatter = { command = "ruff", args = ["format", "-n", "-"] }
 auto-format = true
 
@@ -14,6 +13,10 @@ auto-format = true
 command = "ruff"
 args = ["server", "--preview"]
 config = { settings = { organizeImports = true, lint.run = "onSave" } }
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
 
 [[language]]
 name = "fish"
@@ -282,7 +285,7 @@ roots = []
 file-types = ["shtml"]
 injection-regex = "superhtml|shtml"
 auto-format = true
-language-servers = [ "superhtml-lsp" ]
+language-servers = ["superhtml-lsp"]
 
 [language-server.biome]
 command = "biome"
