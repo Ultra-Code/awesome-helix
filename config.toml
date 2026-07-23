@@ -15,7 +15,7 @@ auto-format = true
 preview-completion-insert = true
 bufferline = "always"
 color-modes = true
-text-width = 80
+text-width = 89
 insert-final-newline = true
 auto-pairs = true
 trim-final-newlines = true
@@ -96,8 +96,6 @@ min-width = 1
 
 [editor.soft-wrap]
 enable = true
-max-wrap = 30
-max-indent-retain = 8
 wrap-at-text-width = true
 
 [editor.smart-tab]
